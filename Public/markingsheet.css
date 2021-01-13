@@ -1,0 +1,96 @@
+body {
+    text-align: center;
+    text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+    font-family: 'Roboto', sans-serif;
+      margin: 0;
+    color: rgb(66,69,86);
+    height: 100%;
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-fresh-chalkboard-stationery-ad-background-backgroundblackboardhand-paintedbooktextbookstationeryfreshknow-how-image_75849.jpg');
+    background-size: cover;
+    font-weight: 100;
+      overflow: auto;
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .pop_message{
+      border: green;
+      font-size: 40px;
+      font-style: bold;
+      color: white;
+      margin: 0;
+      border-bottom-color: green;
+      border-style: solid;
+      overflow: auto;
+      border-width: 8px;
+  }
+  
+  h1{
+    font-size: 50px;
+    line-height: 100px;
+    font-weight: 50;
+    color: white;
+    overflow: auto;
+  }
+  
+  p {
+    margin: 0;
+    padding: 10px;
+    font-size: 30px;
+    font-style: bold;
+    color: white;
+   overflow: auto;
+  }
+  
+  .form {
+      line-height: 1.5;
+      border: none;
+      border-bottom: 3px solid #ebebeb;
+      margin-top: 100px;
+      width: 700px;
+      font-size: 2.9em;
+      color: white;
+      padding: 5px 10px;
+      background: transparent;
+  }
+  
+  button {
+      line-height: 1.0;
+      border: none;
+      border:3px solid white;
+      font-size: 1.0em;
+      color: rgb(66,69,86);
+      padding: 5px 10px;
+      background: rgba(255,255,255,1.0);
+      border-radius: 2px;
+      opacity: 0.8;
+  }
+  
+  ::-webkit-input-placeholder {
+    color: rgba(255,255,255,0.8);
+  }
+  input[type=text]:focus {
+    outline: none;
+  }
+  
+  button:hover{
+    opacity: 1;
+  }
+
+label{
+	  border:3px solid white;
+      font-size: 1.9em;
+      color: white;
+	  font-style: bold;
+}
+
+select{
+	  border:3px solid white;
+      font-size: 1.9em;
+      color: black;
+}

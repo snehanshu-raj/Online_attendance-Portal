@@ -1,0 +1,42 @@
+<link rel = "stylesheet" href = "/markingsheet.css">
+
+<body>
+	
+	<div class = "flex-container">
+	<div class="container">
+	
+		<% if(message.length > 0) { %>
+		<p class = "pop_message">
+			<%= message %>	
+		</p>
+	<% } %>
+		
+	<h1>
+	Attendance IS V-'B'
+	</h1>
+ 
+	<p class="lead"> Mark Attendance here
+		<p>
+			<script> document.write(new Date().toLocaleDateString()); </script>
+			</p>	
+	</p>
+ 
+<form method="POST" action='/markingsheetaction'>
+ <input type="text" class="form" name="usn" placeholder="Enter your USN">
+ <label for="sub_id">Subject</label>
+  <select name="sub_id" id="sub_id">
+    <option value="me">M&E</option>
+    <option value="usp">Unix</option>
+    <option value="ai">AI</option>
+    <option value="dbms">DBMS</option>
+	<option value="pyp">Python</option>
+	<option value="cncs">CNCS</option>
+  </select>
+  <br><br>
+ <button>
+	 Mark Present
+</button>
+</form>
+</div>
+</div>
+</body>

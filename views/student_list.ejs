@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Status</title>
+  
+  <script type="text/javascript">
+    function exportToExcel(table, filename = ''){
+        console.log('clicked');
+        var downloadurl;
+        var dataFileType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(table);
+        var tableHTMLData = tableSelect.outerHTML.replace(/ /g, '%20');
+        
+        filename = new Date().toLocaleDateString();
+        
+        downloadurl = document.createElement("a");
+        
+        document.body.appendChild(downloadurl);
+        
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTMLData], {
+                type: dataFileType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+        }else{
+    
+            downloadurl.href = 'data:' + dataFileType + ', ' + tableHTMLData;
+        
+            downloadurl.download = filename;
+            
+            downloadurl.click();
+        }
+    }
+     
+    </script>
+</head>
+<body>
+    <div class="table-data">
+<h2>STATUS Presents</h2>
+    <table border="1" id='table'>
+        <tr>
+            <th>USN</th>
+            <th>Name</th>
+        </tr>
+        
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.usn_no %></td>
+            <td><%=data.name %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+
+    <button onclick="exportToExcel('table', )" class="btn btn-success">Download Data To Excel File</button>
+</body>
+</html>
