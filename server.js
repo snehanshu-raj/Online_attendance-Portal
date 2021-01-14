@@ -135,7 +135,7 @@ app.post("/markingsheetaction",  function(req, res){
 					
 								var absentees = '\nAbsents\n';
 								
-								connection.query('select tot.usn, tot.name from students tot left join attendance marked on tot.usn = marked.usn_no 								where marked.usn_no is null', 	function(err, rows, fields){ 
+								connection.query('select tot.usn, tot.name from students tot left join attendance marked on tot.usn = marked.usn_no where marked.usn_no is null', function(err, rows, fields){ 
 									if(err)
 									{
 										throw err;
@@ -174,7 +174,7 @@ app.get('/studentstatus', check.isLoggedIn, function(req, res) {
 })
 
 app.get('/totalstatus', check.isLoggedIn, function(req, res) {
-	var sql = 'SELECT usn_no, count(*) as days FROM attendance where sub_id = ? group by usn_no';
+	var sql = 'SELECT usn_no, s.name, count(*) as days FROM attendance a, students s where a.usn_no = s.usn and sub_id = ? group by usn_no order by usn_no';
 
     connection.query(sql, req.user.username, function (err, data, fields) {
     if (err) throw err;
