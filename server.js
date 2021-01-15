@@ -198,6 +198,15 @@ app.get('/enable_link', check.isLoggedIn, function(req, res){
 })
 	});
 		
+	
+	app.get('/class_history', check.isLoggedIn, function(req, res){
+		var sql = 'select * from subjects where sub_id = ?'
+		connection.query(sql, req.user.username, function (err, data, fields) {
+			if (err) throw err;
+			res.render('class_history', { title: 'Presents', userData: data});
+	});
+	})
+
 app.get('/logout', function(req, res) {
 	address_array = [];
 	req.logout();

@@ -82,3 +82,21 @@
 # ('1DS18IS126'	,'SANGMESH' ),
 # ('1DS17IS014' ,'Ansh'),
 # ('1DS17IS003','Aditya Gandhi');
+
+create table subjects 
+(
+    sub_id varchar(5),
+    class_date timestamp default now() 
+);
+
+DELIMITER $$
+create trigger class_taken_on
+    after update on users for each row
+    begin
+        if new.status = 'enable'
+        then 
+            insert into subjects (sub_id) values (new.username);
+        end if;
+    end;
+$$
+DELIMITER ;

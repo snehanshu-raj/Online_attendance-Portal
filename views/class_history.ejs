@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Class History</title>
+</head>
+<body>
+    <div class="table-data">
+<h2>STATUS</h2>
+    <table border="1" id='table'>
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+        </tr>
+        
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.sub_id %></td>
+            <td><%=data.class_date %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+</html>
